@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1000"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/ivLogo1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="200"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="100dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="130"
+        android:gravity="center"
+        android:text="Welcome!"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"/>
+
+
+    <TextView
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="150"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/btChangeData"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="120"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="Change Data" />
+
+    <Button
+        android:id="@+id/btLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="120"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="Log Out" />
+
+</LinearLayout>
