@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1000"
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="300"
+        android:weightSum="100"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_data">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:layout_margin="5dp"
+            android:text="Sensor Data"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="700"
+        android:weightSum="700"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        >
+            <TextView
+                android:id="@+id/tvLight"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:layout_margin="5dp"
+                android:text="1. Light"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical">
+            </TextView>
+
+        <SeekBar
+            android:id="@+id/seekBarLight"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:progressTint="#00BCD4" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvPower"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:layout_margin="5dp"
+                android:text="2. Power"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/button13c"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="poner label"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvTemperature"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:layout_margin="5dp"
+                android:text="3. Temperature"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/buttofsn16c"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="poner %"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvHumidity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:layout_margin="5dp"
+                android:text="4. Humidity"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/buttfsdon1sdf6c"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="poner %"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+            <TextView
+                android:id="@+id/tvTap"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="100"
+                android:layout_margin="5dp"
+                android:text="5. Tap"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

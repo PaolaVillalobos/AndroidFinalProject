@@ -2,6 +2,8 @@ package com.exercise.androidfinalproject;
 
 import static android.content.ContentValues.TAG;
 
+import static com.exercise.androidfinalproject.LoginActivity.isEmailValid;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +25,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView lName = findViewById(R.id.etName);
         Button lChangeData = findViewById(R.id.btChangeData);
         Button lLogOut = findViewById(R.id.btLogOut);
+        Button lViewData = findViewById(R.id.btSensors);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -50,5 +56,35 @@ public class ProfileActivity extends AppCompatActivity {
             lName.setText(name);
 
         }
+
+        lChangeData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, ChangeDataActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.getInstance().signOut();
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lViewData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.getInstance().signOut();
+                Intent intent = new Intent(ProfileActivity.this, SensorsDataActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }

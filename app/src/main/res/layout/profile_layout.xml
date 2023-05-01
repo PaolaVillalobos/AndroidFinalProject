@@ -11,9 +11,10 @@
         android:id="@+id/ivLogo1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="200"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_marginTop="100dp">
+        android:layout_weight="260"
+        android:src="@drawable/ic_folder"
+        android:layout_marginTop="40dp"
+        android:layout_margin="30dp">
 
     </ImageView>
 
@@ -26,22 +27,35 @@
         android:text="Welcome!"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="40dp"/>
+        android:textColor="@color/grey4"
+        android:layout_marginTop="4dp"/>
 
 
     <TextView
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="150"
+        android:layout_weight="120"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="30dp"
-        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/blue4"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/btSensors"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="120"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="View Sensors Data"
+        android:textColor="@color/grey1"
+
+        />
 
     <Button
         android:id="@+id/btChangeData"

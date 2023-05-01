@@ -29,6 +29,10 @@
 
         <activity android:name=".SignupActivity"/>
 
+        <activity android:name=".ChangeDataActivity"/>
+
+        <activity android:name=".SensorsDataActivity"/>
+
     </application>
 
 </manifest>
