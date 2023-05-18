@@ -62,7 +62,7 @@
             </TextView>
 
         <SeekBar
-            android:id="@+id/seekBarLight"
+            android:id="@+id/sbLightValue"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="100"
@@ -79,12 +79,12 @@
             >
 
             <TextView
-                android:id="@+id/tvPower"
+                android:id="@+id/tvPresence"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="70"
                 android:layout_margin="5dp"
-                android:text="2. Power"
+                android:text="2. Presence"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
@@ -92,7 +92,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/button13c"
+                android:id="@+id/tvPresenceValue"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="30"
@@ -129,7 +129,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/buttofsn16c"
+                android:id="@+id/tvTemperatureValue"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="30"
@@ -166,7 +166,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/buttfsdon1sdf6c"
+                android:id="@+id/tvHumidityValue"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="30"
@@ -203,7 +203,7 @@
         </LinearLayout>
 
             <SeekBar
-                android:id="@+id/seekBar2"
+                android:id="@+id/sbTapValue"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="100" />

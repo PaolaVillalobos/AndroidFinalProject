@@ -2,16 +2,17 @@ package com.exercise.androidfinalproject;
 
 import static android.content.ContentValues.TAG;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,32 +20,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class SensorsDataActivity extends AppCompatActivity {
+public class SensorsDataFragment extends Fragment {
+
+    private TextView tvTemperatureValue, tvHumidityValue, tvPresenceValue;
+    private SeekBar sbLightValue, sbTapValue;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.sensorsdata_layout);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.sensorsdata_layout, container, false);
 
-        TextView tvTemperatureValue = findViewById(R.id.tvTemperatureValue);
-        TextView tvHumidityValue = findViewById(R.id.tvHumidityValue);
-        SeekBar sbLightValue = findViewById(R.id.sbLightValue);
-        SeekBar sbTapValue = findViewById(R.id.sbTapValue);
-        TextView tvPresenceValue = findViewById(R.id.tvPresenceValue);
-
+        tvTemperatureValue = view.findViewById(R.id.tvTemperatureValue);
+        tvHumidityValue = view.findViewById(R.id.tvHumidityValue);
+        sbLightValue = view.findViewById(R.id.sbLightValue);
+        sbTapValue = view.findViewById(R.id.sbTapValue);
+        tvPresenceValue = view.findViewById(R.id.tvPresenceValue);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference Humidity = database.getReference("Humidity");
-        DatabaseReference Temperature = database.getReference("Temperature");
-        DatabaseReference Light = database.getReference("Light");
-        DatabaseReference Tap = database.getReference("Tap");
-        DatabaseReference Presence = database.getReference("Presence");
+        DatabaseReference humidityRef = database.getReference("Humidity");
+        DatabaseReference temperatureRef = database.getReference("Temperature");
+        DatabaseReference lightRef = database.getReference("Light");
+        DatabaseReference tapRef = database.getReference("Tap");
+        DatabaseReference presenceRef = database.getReference("Presence");
 
-
-        Humidity.addValueEventListener(new ValueEventListener() {
+        humidityRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 Double humidity = dataSnapshot.getValue(Double.class);
                 tvHumidityValue.setText(humidity.toString());
                 Log.d(TAG, "Value is: " + humidity);
@@ -52,16 +52,13 @@ public class SensorsDataActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
 
-        Temperature.addValueEventListener(new ValueEventListener() {
+        temperatureRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 Double temperature = dataSnapshot.getValue(Double.class);
                 tvTemperatureValue.setText(temperature.toString());
                 Log.d(TAG, "Value is: " + temperature);
@@ -69,7 +66,6 @@ public class SensorsDataActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
@@ -78,19 +74,16 @@ public class SensorsDataActivity extends AppCompatActivity {
         sbLightValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // Aquí se lee el valor del SeekBar y se hace lo que se requiera con él
                 Log.d("SeekBar", "El valor del SeekBar es: " + progress);
-                Light.setValue(progress);
+                lightRef.setValue(progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // Este método se llama cuando se toca el SeekBar
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // Este método se llama cuando se suelta el dedo del SeekBar
             }
         });
 
@@ -98,28 +91,23 @@ public class SensorsDataActivity extends AppCompatActivity {
         sbTapValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // Aquí se lee el valor del SeekBar y se hace lo que se requiera con él
                 Log.d("SeekBar", "El valor del SeekBar es: " + progress);
-                Tap.setValue(progress);
+                tapRef.setValue(progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // Este método se llama cuando se toca el SeekBar
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // Este método se llama cuando se suelta el dedo del SeekBar
             }
         });
 
-        Presence.addValueEventListener(new ValueEventListener() {
+        presenceRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                boolean presence = dataSnapshot.getValue(Boolean.class);
+                Boolean presence = dataSnapshot.getValue(Boolean.class);
                 tvPresenceValue.setText(Boolean.toString(presence));
                 Log.d(TAG, "Value is: " + presence);
             }
@@ -130,7 +118,7 @@ public class SensorsDataActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+        return view;
     }
-
-
 }
+

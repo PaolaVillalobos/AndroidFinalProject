@@ -41,6 +41,16 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        // check if email and password are saved in SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String email = preferences.getString("email", "");
+        String password = preferences.getString("password", "");
+
+        if (!email.isEmpty() && !password.isEmpty()) {
+            signIn(email, password);
+            return;
+        }
+
         lLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,8 +100,14 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             //FirebaseUser user = mAuth.getCurrentUser();
+                            // save email and password in SharedPreferences
+                            SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("email", email);
+                            editor.putString("password", password);
+                            editor.apply();
 
-                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
                             //intent.putExtra("key_email", etEmail.getText().toString());
                             startActivity(intent);
                             finish();

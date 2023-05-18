@@ -1,22 +1,23 @@
 package com.exercise.androidfinalproject;
 
 import static android.content.ContentValues.TAG;
-
+import static android.content.Context.MODE_PRIVATE;
 import static com.exercise.androidfinalproject.LoginActivity.isEmailValid;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,20 +25,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileFragment extends Fragment {
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_layout);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.profile_layout, container, false);
 
-        TextView lName = findViewById(R.id.etName);
-        Button lChangeData = findViewById(R.id.btChangeData);
-        Button lLogOut = findViewById(R.id.btLogOut);
-        Button lViewData = findViewById(R.id.btSensors);
-
+        TextView lName = view.findViewById(R.id.etName);
+        Button lChangeData = view.findViewById(R.id.btChangeData);
+        Button lLogOut = view.findViewById(R.id.btLogOut);
+        Button lViewData = view.findViewById(R.id.btSensors);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -60,24 +59,24 @@ public class ProfileActivity extends AppCompatActivity {
         lChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, ChangeDataActivity.class);
-                startActivity(intent);
-                finish();
+                Intent intent = new Intent(requireActivity(), ChangeDataActivity.class);
+                requireActivity().startActivity(intent);
+                requireActivity().finish();
             }
         });
 
         lLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences preferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("email", "");
                 editor.putString("password", "");
                 editor.apply();
                 auth.getInstance().signOut();
-                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                Intent intent = new Intent(requireActivity(), LoginActivity.class);
+                requireActivity().startActivity(intent);
+                requireActivity().finish();
             }
         });
 
@@ -85,11 +84,12 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 auth.getInstance().signOut();
-                Intent intent = new Intent(ProfileActivity.this, SensorsDataActivity.class);
-                startActivity(intent);
-                finish();
+                Intent intent = new Intent(requireActivity(), SensorsDataActivity.class);
+                requireActivity().startActivity(intent);
+                requireActivity().finish();
             }
         });
 
+        return view;
     }
 }
