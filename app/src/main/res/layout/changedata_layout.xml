@@ -83,6 +83,7 @@
         android:layout_weight="120"
         android:gravity="center"
         android:paddingHorizontal="20dp"
-        android:text="Change Data" />
+        android:text="Change Data"
+        android:background="@color/blue1"/>
 
 </LinearLayout>

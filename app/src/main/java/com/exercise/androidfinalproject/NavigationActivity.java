@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.customview.widget.Openable;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,7 +34,7 @@ public class NavigationActivity<ActivityNavigationBinding> extends AppCompatActi
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_change_data, R.id.navigation_profile, R.id.navigation_sensors_data)
+                R.id.navigation_profile, R.id.navigation_change_data, R.id.navigation_sensors_data)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -45,21 +46,30 @@ public class NavigationActivity<ActivityNavigationBinding> extends AppCompatActi
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_change_data:
+                        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        ChangeDataFragment changeDataFragment = new ChangeDataFragment();
                         // Load ChangeDataFragment into the fragment container
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_fragment, new ChangeDataFragment())
+                                .addToBackStack(null)
                                 .commit();
                         return true;
                     case R.id.navigation_profile:
                         // Load ChangeDataFragment into the fragment container
+                        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        ProfileFragment profileFragment = new ProfileFragment();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_fragment, new ProfileFragment())
+                                .addToBackStack(null)
                                 .commit();
                         return true;
                     case R.id.navigation_sensors_data:
                         // Load ChangeDataFragment into the fragment container
+                        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        SensorsDataFragment sensorsDataFragment = new SensorsDataFragment();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_fragment, new SensorsDataFragment())
+                                .addToBackStack(null)
                                 .commit();
                         return true;
                     default:
