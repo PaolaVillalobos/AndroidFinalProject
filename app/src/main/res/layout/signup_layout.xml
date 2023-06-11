@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1000"
+    android:layout_margin="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="230"
+        android:src="@drawable/ic_hello"
+        android:layout_marginTop="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="100"
+        android:paddingHorizontal="20dp"
+        android:text="Sign Up"
+        android:gravity="fill_vertical"
+        android:textSize="25dp"
+        android:textColor="@color/blue5"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:hint="Name:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:hint="Email:"
+        android:inputType="text|textEmailAddress"
+        android:textAlignment="textStart"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:inputType="textPassword"
+        android:hint="Password:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:inputType="textPassword"
+        android:hint="Repeat Password:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/red"
+        android:gravity="end"
+        />
+
+    <Button
+        android:id="@+id/btSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="140"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="Sign Up" />
+
+</LinearLayout>

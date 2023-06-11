@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1000"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="300"
+        android:src="@drawable/ic_password"
+        android:layout_marginTop="40dp">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="120"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Name:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="120"
+        android:hint="Email:"
+        android:inputType="text|textEmailAddress"
+        android:fontFamily="sans-serif-condensed"
+        android:textAlignment="textStart"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="120"
+        android:inputType="textPassword"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Password:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="120"
+        android:inputType="textPassword"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Repeat Password:"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/red"
+        android:gravity="end"
+        />
+
+    <Button
+        android:id="@+id/btChangeData"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="120"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="Change Data"
+        android:background="@color/blue1"/>
+
+</LinearLayout>
