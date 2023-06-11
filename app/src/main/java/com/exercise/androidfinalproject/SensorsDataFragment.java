@@ -32,7 +32,7 @@ import android.os.Build;
 
 public class SensorsDataFragment extends Fragment {
 
-    private TextView tvTemperatureValue, tvHumidityValue, tvPresenceValue;
+    private TextView tvTemperatureValue, tvHumidityValue, tvPresenceValue, tvEmergencyValue, tvEmergencyTapValue;
     private SeekBar sbLightValue, sbTapValue;
     private NotificationHelper notificationHelper;
 
@@ -48,6 +48,8 @@ public class SensorsDataFragment extends Fragment {
         sbLightValue = view.findViewById(R.id.sbLightValue);
         sbTapValue = view.findViewById(R.id.sbTapValue);
         tvPresenceValue = view.findViewById(R.id.tvPresenceValue);
+        tvEmergencyValue = view.findViewById(R.id.tvEmergencyValue);
+        tvEmergencyTapValue = view.findViewById(R.id.tvEmergencyTapValue);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference humidityRef = database.getReference("Humidity");
@@ -55,6 +57,9 @@ public class SensorsDataFragment extends Fragment {
         DatabaseReference lightRef = database.getReference("Light");
         DatabaseReference tapRef = database.getReference("Tap");
         DatabaseReference presenceRef = database.getReference("Presence");
+        DatabaseReference emergencyTap = database.getReference("TapEmergency");
+        DatabaseReference emergency = database.getReference("Emergency");
+
 
         humidityRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,8 +81,6 @@ public class SensorsDataFragment extends Fragment {
                 Double temperature = dataSnapshot.getValue(Double.class);
                 tvTemperatureValue.setText(temperature.toString());
                 Log.d(TAG, "Value is: " + temperature);
-
-
             }
 
             @Override
@@ -103,7 +106,20 @@ public class SensorsDataFragment extends Fragment {
             }
         });
 
-        sbTapValue.setMax(3);
+        lightRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int LightValue = snapshot.getValue(Integer.class);
+                sbLightValue.setProgress(LightValue);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        sbTapValue.setMax(2);
         sbTapValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -117,6 +133,49 @@ public class SensorsDataFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        tapRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int TapValue = snapshot.getValue(Integer.class);
+                sbTapValue.setProgress(TapValue);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        emergencyTap.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Boolean emergencyTapValue = dataSnapshot.getValue(Boolean.class);
+                tvEmergencyTapValue.setText(Boolean.toString(emergencyTapValue));
+                Log.d(TAG, "Value is: " + emergencyTapValue);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+        emergency.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Boolean emergencyValue = dataSnapshot.getValue(Boolean.class);
+                tvEmergencyValue.setText(Boolean.toString(emergencyValue));
+                Log.d(TAG, "Value is: " + emergencyValue);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
 

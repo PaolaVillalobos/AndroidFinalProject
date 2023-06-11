@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         String email = preferences.getString("email", "");
         String password = preferences.getString("password", "");
 
+
+
         if (!email.isEmpty() && !password.isEmpty()) {
             signIn(email, password);
             return;

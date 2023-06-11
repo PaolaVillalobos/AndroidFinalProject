@@ -44,9 +44,11 @@ public class ChangeDataFragment extends Fragment {
         TextView tvError = view.findViewById(R.id.tvError);
         Button btChangeData = view.findViewById(R.id.btChangeData);
 
+        tvError.setText("");
         btChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tvError.setText("");
                 FirebaseUser user = auth.getCurrentUser();
                 // Update the user's display name in Firebase
                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
@@ -60,11 +62,14 @@ public class ChangeDataFragment extends Fragment {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "User profile updated.");
                                         tvError.setText("Name Changed");
+                                        lName.setText("");
                                     } else {
                                         tvError.setText("Error Changing Name");
                                     }
                                 }
                             });
+                } else {
+                    lName.setText("");
                 }
                 if (!lEmail.getText().toString().trim().isEmpty()) {
                     user.updateEmail(lEmail.getText().toString().trim())
@@ -74,12 +79,15 @@ public class ChangeDataFragment extends Fragment {
                                     if (task.isSuccessful()) {
                                         // Username updated successfully
                                         tvError.setText("Email Changed");
+                                        lEmail.setText("");
                                     } else {
                                         // Failed to update username
                                         tvError.setText("Error Changing Email");
                                     }
                                 }
                             });
+                } else{
+                    lEmail.setText("");
                 }
                 if (!lPassword.getText().toString().trim().isEmpty()) {
                     if (lPassword.getText().toString().equals(lPassword2.getText().toString())) {
@@ -90,6 +98,8 @@ public class ChangeDataFragment extends Fragment {
                                         if (task.isSuccessful()) {
                                             // Password updated successfully
                                             tvError.setText("Password Changed");
+                                            lPassword.setText("");
+                                            lPassword2.setText("");
                                         } else {
                                             // Failed to update password
                                             tvError.setText("Error Changing Password");
@@ -98,6 +108,8 @@ public class ChangeDataFragment extends Fragment {
                                 });
                     } else {
                         tvError.setText("Password Mismatch");
+                        lPassword.setText("");
+                        lPassword2.setText("");
                     }
                 }
             }
@@ -105,4 +117,6 @@ public class ChangeDataFragment extends Fragment {
 
         return view;
     }
+
+
 }

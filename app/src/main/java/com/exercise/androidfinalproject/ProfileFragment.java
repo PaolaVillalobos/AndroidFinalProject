@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.exercise.androidfinalproject.databinding.FragmentLayoutBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,16 +28,16 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class ProfileFragment extends Fragment {
 
+    private FragmentLayoutBinding binding;
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.profile_layout, container, false);
 
         TextView lName = view.findViewById(R.id.etName);
-        Button lChangeData = view.findViewById(R.id.btChangeData);
         Button lLogOut = view.findViewById(R.id.btLogOut);
-        Button lViewData = view.findViewById(R.id.btSensors);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -56,14 +57,6 @@ public class ProfileFragment extends Fragment {
 
         }
 
-        lChangeData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(requireActivity(), ChangeDataActivity.class);
-                requireActivity().startActivity(intent);
-                requireActivity().finish();
-            }
-        });
 
         lLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,15 +73,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        lViewData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                auth.getInstance().signOut();
-                Intent intent = new Intent(requireActivity(), SensorsDataActivity.class);
-                requireActivity().startActivity(intent);
-                requireActivity().finish();
-            }
-        });
 
         return view;
     }

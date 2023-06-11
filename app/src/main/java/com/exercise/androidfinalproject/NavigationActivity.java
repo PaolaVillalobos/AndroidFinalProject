@@ -15,9 +15,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+
 import com.exercise.androidfinalproject.databinding.FragmentLayoutBinding;
 
-public class NavigationActivity<ActivityNavigationBinding> extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity {
 
     private FragmentLayoutBinding binding;
     private NavController navController;
@@ -84,6 +85,11 @@ public class NavigationActivity<ActivityNavigationBinding> extends AppCompatActi
     @Override
     public boolean onSupportNavigateUp() {
         return NavigationUI.navigateUp(navController, (Openable) null);
+    }
+
+    public void onDestroyView() {
+        onDestroyView();
+        binding = null;
     }
 
 }

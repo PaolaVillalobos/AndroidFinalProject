@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="300"
+        android:layout_weight="200"
         android:weightSum="100"
         android:orientation="horizontal"
         android:layout_margin="5dp">
@@ -45,7 +45,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="700"
+        android:layout_weight="800"
         android:weightSum="800"
         android:orientation="vertical"
         android:layout_margin="5dp"
@@ -54,20 +54,20 @@
             android:id="@+id/tvSensors"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:layout_margin="5dp"
             android:text="1. Sensors"
             android:textSize="30dp"
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:textColor="@color/grey5"
+            android:textColor="@color/blue6"
             >
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:weightSum="100"
             android:orientation="horizontal"
             android:layout_margin="5dp"
@@ -106,7 +106,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:layout_margin="5dp"
-                android:text="poner label"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -118,7 +117,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:weightSum="100"
             android:orientation="horizontal"
             android:layout_margin="5dp"
@@ -157,7 +156,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:layout_margin="5dp"
-                android:text="poner %"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -169,7 +167,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:weightSum="100"
             android:orientation="horizontal"
             android:layout_margin="5dp"
@@ -207,8 +205,57 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:layout_margin="5dp"
-                android:text="poner %"
                 android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+            <TextView
+                android:id="@+id/tvNumber1.4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:layout_margin="5dp"
+                android:text="1.4"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textColor="@color/grey5"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/tvEmergency"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:layout_margin="5dp"
+                android:text="Emergency"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textColor="@color/grey5"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvEmergencyValue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:textColor="@color/red"
                 android:textStyle="bold"
                 android:gravity="center"
                 >
@@ -220,42 +267,115 @@
             android:id="@+id/tvLight"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:layout_margin="5dp"
             android:text="2. Smart Light"
             android:textSize="30dp"
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:textColor="@color/grey5">
+            android:textColor="@color/blue6">
         </TextView>
 
         <SeekBar
             android:id="@+id/sbLightValue"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:progressTint="#00BCD4"/>
 
-        <TextView
-            android:id="@+id/tvTap"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="100"
+            android:weightSum="100"
+            android:orientation="horizontal"
             android:layout_margin="5dp"
-            android:text="3. Tap"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:gravity="center_vertical"
-            android:textColor="@color/grey5">
-        </TextView>
+            >
+            <TextView
+                android:id="@+id/tvTap"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:layout_margin="5dp"
+                android:text="3. Tap"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textColor="@color/blue6">
+            </TextView>
+            <TextView
+                android:id="@+id/tvEmergencyTapValue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
 
         <SeekBar
             android:id="@+id/sbTapValue"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:progressTint="#00BCD4"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70"
+            android:weightSum="90"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+            <TextView
+                android:id="@+id/tvTapClosed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="Closed"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textColor="@color/grey5"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/tvTapHalfway"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="Halfway"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/grey5"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvTapOpen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:layout_margin="5dp"
+                android:text="Open"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:textColor="@color/grey5"
+                >
+            </TextView>
+
+        </LinearLayout>
 
     </LinearLayout>
 

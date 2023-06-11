@@ -21,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="120"
-        android:inputType="textPassword"
         android:fontFamily="sans-serif-condensed"
         android:hint="Name:"
         android:paddingHorizontal="20dp"
