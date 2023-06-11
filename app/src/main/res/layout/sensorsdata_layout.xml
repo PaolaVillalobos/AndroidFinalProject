@@ -92,7 +92,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="60"
                 android:layout_margin="5dp"
-                android:text="Presence"
+                android:text="Fall detected"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
@@ -255,7 +255,7 @@
                 android:layout_weight="30"
                 android:layout_margin="5dp"
                 android:textSize="20dp"
-                android:textColor="@color/red"
+                android:textColor="@color/grey5"
                 android:textStyle="bold"
                 android:gravity="center"
                 >
@@ -311,7 +311,7 @@
                 android:layout_weight="30"
                 android:layout_margin="5dp"
                 android:textSize="20dp"
-                android:textColor="@color/red"
+                android:textColor="@color/grey5"
                 android:textStyle="bold"
                 android:gravity="center"
                 >
