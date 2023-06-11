@@ -67,6 +67,11 @@ public class SensorsDataFragment extends Fragment {
                 Double humidity = dataSnapshot.getValue(Double.class);
                 tvHumidityValue.setText(humidity.toString());
                 Log.d(TAG, "Value is: " + humidity);
+                if(humidity > 90){
+                    tvHumidityValue.setTextColor(getResources().getColor(R.color.red));
+                } else {
+                    tvHumidityValue.setTextColor(getResources().getColor(R.color.grey5));
+                }
             }
 
             @Override
@@ -81,6 +86,11 @@ public class SensorsDataFragment extends Fragment {
                 Double temperature = dataSnapshot.getValue(Double.class);
                 tvTemperatureValue.setText(temperature.toString());
                 Log.d(TAG, "Value is: " + temperature);
+                if(temperature > 28){
+                    tvTemperatureValue.setTextColor(getResources().getColor(R.color.red));
+                } else {
+                    tvTemperatureValue.setTextColor(getResources().getColor(R.color.grey5));
+                }
             }
 
             @Override
@@ -155,6 +165,11 @@ public class SensorsDataFragment extends Fragment {
                 Boolean emergencyTapValue = dataSnapshot.getValue(Boolean.class);
                 tvEmergencyTapValue.setText(Boolean.toString(emergencyTapValue));
                 Log.d(TAG, "Value is: " + emergencyTapValue);
+                if(emergencyTapValue){
+                    tvEmergencyTapValue.setTextColor(getResources().getColor(R.color.red));
+                } else {
+                    tvEmergencyTapValue.setTextColor(getResources().getColor(R.color.grey5));
+                }
             }
 
             @Override
@@ -170,6 +185,11 @@ public class SensorsDataFragment extends Fragment {
                 Boolean emergencyValue = dataSnapshot.getValue(Boolean.class);
                 tvEmergencyValue.setText(Boolean.toString(emergencyValue));
                 Log.d(TAG, "Value is: " + emergencyValue);
+                if(emergencyValue){
+                    tvEmergencyValue.setTextColor(getResources().getColor(R.color.red));
+                } else {
+                    tvEmergencyValue.setTextColor(getResources().getColor(R.color.grey5));
+                }
             }
 
             @Override
@@ -187,6 +207,9 @@ public class SensorsDataFragment extends Fragment {
                 Log.d(TAG, "Value is: " + presence);
                 if(presence){
                     showNotification();
+                    tvPresenceValue.setTextColor(getResources().getColor(R.color.red));
+                } else {
+                    tvPresenceValue.setTextColor(getResources().getColor(R.color.grey5));
                 }
             }
 
